@@ -10,11 +10,11 @@ class FinancialFunctions:
     def bbands(close_prices, window, no_of_stdev):
         rolling_mean = close_prices.rolling(window=window).mean()
         rolling_std = close_prices.rolling(window=window).std()
-        # rolling_mean = close_prices.ewm(span=window).mean()
-        # rolling_std = close_prices.ewm(span=window).std()
+        rolling_mean = close_prices.ewm(span=window).mean()
+        rolling_std = close_prices.ewm(span=window).std()
 
-        upper_band = rolling_mean + (rolling_std * no_of_stdev)
-        lower_band = rolling_mean - (rolling_std * no_of_stdev)
+        # upper_band = rolling_mean + (rolling_std * no_of_stdev)
+        # lower_band = rolling_mean - (rolling_std * no_of_stdev)
 
         return rolling_mean, upper_band, lower_band
 
